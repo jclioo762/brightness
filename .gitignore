@@ -1,0 +1,20 @@
+# 忽略编译产生的临时文件
+*.o
+*.obj
+
+# 忽略构建产生的目录
+build/
+bin/
+cmake-build-debug/
+
+# 忽略一些编辑器或开发环境相关文件
+.vscode/
+.idea/
+*.user
+
+# 忽略可执行文件
+app
+
+# 忽略生成的文档或报告
+docs/
+report.pdf
