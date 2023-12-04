@@ -1,0 +1,34 @@
+Source: dde-dock-brightness-plugin
+Maintainer: jclioo <jclio@qq.com>
+Section: utils
+Priority: optional
+Build-Depends:
+ cmake,
+ debhelper (>= 9),
+ pkg-config,
+ qtchooser (>= 55-gc9562a1-1~),
+ qtbase5-dev,
+ libqt5svg5-dev,
+ libdtkwidget-dev,
+ libgsettings-qt-dev,
+ libsystemd-dev,
+ libxcursor-dev,
+ dde-dock-dev
+Standards-Version: 1.0.0
+Homepage: https://github.com/jclioo762/brightness
+
+
+Package: dde-dock-brightness-plugin
+Architecture: any
+Depends:${shlibs:Depends}, ${misc:Depends},
+ dde-control-center,
+ dde-dock,
+ libqt5dbus5,
+ libqt5svg5,
+ libqt5widgets5,
+ libdtkwidget5,
+ libgsettings-qt1,
+ libsystemd0,
+ libxcursor1
+Description: DDE Dock Brightness Plugin
+ A simple dde-dock plugin for brightness adjustment.
