@@ -18,6 +18,8 @@ BrightnessPlugin::BrightnessPlugin(QObject *parent)
 //                     m_brightnessApplet, SLOT(setBackLight(const int)));
 //    QObject::connect(m_brightnessWidget, SIGNAL(wheelEventTip()),
 //                     this, SLOT(handleEventTip()));
+
+    m_tipsWidget->setContentsMargins(10, 0, 10, 0);
     }
 
 /**
@@ -70,7 +72,7 @@ QWidget *BrightnessPlugin::itemWidget(const QString &itemKey)
 QWidget *BrightnessPlugin::itemTipsWidget(const QString &itemKey)
 {
     BackLightInfo brightnessInfo = m_brightnessApplet->getCurBackLight();
-    m_tipsWidget->setText(QString(" 当前亮度 %1% ").arg((brightnessInfo.curBrightness * 100 /  brightnessInfo.maxBrightness) + 1));
+    m_tipsWidget->setText(QString("当前亮度 %1 %").arg(qCeil(brightnessInfo.curBrightness * 100 /  brightnessInfo.maxBrightness)));
     return m_tipsWidget;
 }
 /**
