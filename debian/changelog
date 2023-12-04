@@ -1,0 +1,14 @@
+dde-dock-brightness-plugin (1.0.3-beta.2) unstable; urgency=medium
+
+  * Support dpkg-buildpackage
+
+ -- jclioo <jclio@qq.com>  Mon, 4 Dec 2023 12:00:00 +0800
+
+
+dde-dock-brightness-plugin (1.0.3-beta.1) unstable; urgency=medium
+
+  * Only compatible with Deepin V20
+  * Only compatible with Intel integrated graphics card
+
+ -- jclioo <jclio@qq.com>  Fri, 1 Dec 2023 10:26:00 +0800
+

@@ -14,6 +14,16 @@
 > 
 > 譬如 监听屏幕设备的增加或减少，多屏幕设备 的亮度调节, 滚轮直接调节亮度等等
 
+### 编译打包
+
+在项目文件夹中，右键“在终端中打开”，执行 `sudo apt build-dep .` 安装编译所需依赖。
+
+执行以下命令进行打包：
+```bash
+dpkg-buildpackage -rfakeroot -b -j$(nproc)
+```
+编译打包结束后在项目上层文件夹中找到 `dde-dock-brightness-plugin_${version}_${arch}.deb` 后双击安装即可。
+
 ### 安装
 
 ```bash

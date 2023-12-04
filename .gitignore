@@ -18,3 +18,12 @@ app
 # 忽略生成的文档或报告
 docs/
 report.pdf
+
+# 忽略打包生成的文件
+/obj-x86_64-linux-gnu
+/debian/debhelper-build-stamp
+/debian/files
+/debian/.debhelper
+/debian/dde-dock-brightness-plugin.debhelper.log
+/debian/dde-dock-brightness-plugin.substvars
+/debian/dde-dock-brightness-plugin
