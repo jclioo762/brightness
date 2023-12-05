@@ -89,9 +89,18 @@ void BrightnessApplet::initUI()
  * 给设备信息列表赋值
  */
 void BrightnessApplet::setBackLightInfo() {
-    *m_backLightInfoList = BrightnessUtil::getBackLightInfo();
+    QList<BackLightInfo> backLightInfo = BrightnessUtil::getBackLightInfo();
+    if (!backLightInfo.isEmpty()) {
+        *m_backLightInfoList = backLightInfo;
+    } else {
+        BackLightInfo tmplightInfo = *new BackLightInfo();
+        tmplightInfo.maxBrightness = 100;
+        tmplightInfo.curBrightness = 80;
+        tmplightInfo.name = "emptyEquipment";
+        m_backLightInfoList->append(tmplightInfo);
+        qWarning() << "BackLightInfo is empty!!";
+    }
 }
-
 /**
  * 槽函数 滑块事件函数
  * @param value
