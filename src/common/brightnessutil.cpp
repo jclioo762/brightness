@@ -72,5 +72,9 @@ bool BrightnessUtil::setBrightness(const std::string &backlight, int value) {
  */
 int BrightnessUtil::getBackLightPercentage() {
     QList<BackLightInfo> backLightInfo = getBackLightInfo();
+    if (backLightInfo.size() < 1) {
+        return -1;
+    }
+
     return (backLightInfo.value(CURDEVICEINDEX).curBrightness * 100 / backLightInfo.value(CURDEVICEINDEX).maxBrightness) + 1;
 }

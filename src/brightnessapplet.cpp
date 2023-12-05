@@ -40,7 +40,7 @@ void BrightnessApplet::initUI()
     m_titleLabel->setForegroundRole(QPalette::BrightText);
     Dtk::Widget::DFontSizeManager::instance()->bind(m_titleLabel, Dtk::Widget::DFontSizeManager::T4, QFont::Medium);
     // 亮度 Label
-    m_infoLabel->setText(QString("%1%").arg(0));
+    m_infoLabel->setText(QString("%1 %").arg(0));
     m_infoLabel->setFixedHeight(TITLE_HEIGHT);
     m_infoLabel->setForegroundRole(QPalette::BrightText);
     Dtk::Widget::DFontSizeManager::instance()->bind(m_infoLabel, Dtk::Widget::DFontSizeManager::T8, QFont::Medium);
@@ -66,8 +66,14 @@ void BrightnessApplet::initUI()
     slider->setFixedHeight(SLIDER_HIGHT);
 
 //    slider->setValue(m_backLightInfoList->value(CURDEVICEINDEX).curBrightness * 100 / m_backLightInfoList->value(CURDEVICEINDEX).maxBrightness);
-    slider->setValue(BrightnessUtil::getBackLightPercentage());
-    m_infoLabel->setText(QString::number(slider->value()) + " %");
+    int percentage = BrightnessUtil::getBackLightPercentage();
+    if (percentage < 0) {
+        qCritical() << "Get backlight percentage failed, disabling brightness adjustment...";
+        slider->setDisabled(true);
+        percentage = 0;
+    }
+    slider->setValue(percentage);
+    m_infoLabel->setText(QString::number(percentage) + " %");
 
     QHBoxLayout *sliderLayout = new QHBoxLayout;
     sliderLayout->setSpacing(0);

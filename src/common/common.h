@@ -5,7 +5,7 @@
 
 struct BackLightInfo {
   QString name;
-  int curBrightness;
-  int maxBrightness;
+  int curBrightness = 0;
+  int maxBrightness = 1;
 };
 #endif // COMMON_H
